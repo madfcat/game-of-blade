@@ -1,0 +1,196 @@
+<html>
+  <head>
+  <title>Game of Blade Trick Generator</title>
+  <link rel="stylesheet" href="game-of-blade.css">
+  <link href="css/all.css" rel="stylesheet">
+  <script type="text/javascript" src="game-of-blade.js"></script>
+  </head>
+  <body>
+    <div class="gob-wrapper">
+        <div class="gob-title">
+        Game of Blade Trick Generator
+        </div>
+        <div class="columns-wrapper">
+          <div class="button-field">
+            <button type="button" class="clear-button" onClick="cleanThis()">Clear</button>
+            <button type="button" class="gob-button" onClick="letsDoIt()">Randomise</button>
+          </div>
+          <div class="columns-result">
+            <div class="result-block">
+                <div class="will-be">Result will be shown here</div>
+                <div class="trick-result"></div>
+                <div class="more-button"><i class="fas fa-caret-down closed" onClick="showMoreTricks()"></i></div>
+            </div>
+          </div>
+          <div class="columns-titles">
+            <div class="column-title">Soul Tricks</div>
+            <div class="column-title">Groove Tricks</div>
+            <div class="column-title">Spins On Tricks</div>
+            <div class="column-title">Variations</div>
+            <div class="column-title">Spin Off Tricks</div>
+          </div>
+          <div class="columns-mode">
+            <div class="column">
+              <div class="align-column">
+               <div><input type="radio" id="custom-soul" name="soul-mode" onClick="reloadCustoms(this.id)" checked><label for="custom-soul">custom</label></div>
+               <div><input type="radio" id="basic-soul" name="soul-mode" onClick="selectMode(this.id)"><label for="basic-soul">basic</label></div>
+               <div><input type="radio" id="medium-soul" name="soul-mode" onClick="selectMode(this.id)"><label for="medium-soul">medium</label></div>
+               <div><input type="radio" id="hard-soul" name="soul-mode" onClick="selectMode(this.id)"><label for="hard-soul">hard</div>
+               <div><input type="checkbox" id="select-all-soul" name="soul-mode" onClick="selectAll('soul-tricks',this.id); saveAllCustoms(this.name)"><label for="select-all-soul">select all</label></div>
+              </div> 
+            </div>
+            <div class="column">
+              <div class="align-column">
+               <div><input type="radio" id="custom-groove" name="groove-mode" onClick="reloadCustoms(this.id)" checked><label for="custom-groove">custom</label></div>
+               <div><input type="radio" id="basic-groove" name="groove-mode" onClick="selectMode(this.id)"><label for="basic-groove">basic</label></div>
+               <div><input type="radio" id="medium-groove" name="groove-mode" onClick="selectMode(this.id)"><label for="medium-groove">medium</label></div>
+               <div><input type="radio" id="hard-groove" name="groove-mode" onClick="selectMode(this.id)"><label for="hard-groove">hard</div>
+               <div><input type="checkbox" id="select-all-groove" name="groove-mode" onClick="selectAll('groove-tricks',this.id); saveAllCustoms(this.name)"><label for="select-all-groove">select all</label></div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="align-column">
+               <div><input type="radio" id="custom-spins-on" name="spins-on-mode" onClick="reloadCustoms(this.id)" checked><label for="custom-spins-on">custom</label></div>
+               <div><input type="radio" id="basic-spins-on" name="spins-on-mode" onClick="selectMode(this.id)"><label for="basic-spins-on">basic</label></div>
+               <div><input type="radio" id="medium-spins-on" name="spins-on-mode" onClick="selectMode(this.id)"><label for="medium-spins-on">medium</label></div>
+               <div><input type="radio" id="hard-spins-on" name="spins-on-mode" onClick="selectMode(this.id)"><label for="hard-spins-on">hard</div>
+               <div><input type="checkbox" id="select-all-spins-on" name="spins-on-mode" onClick="selectAll('spins-on-trick',this.id); saveAllCustoms(this.name)"><label for="select-all-spins-on">select all</label></div>
+              </div> 
+            </div>
+            <div class="column">
+              <div class="align-column">
+               <div><input type="radio" id="custom-var" name="variations-mode" onClick="reloadCustoms(this.id)" checked><label for="custom-var">custom</label></div>
+               <div><input type="radio" id="basic-var" name="variations-mode" onClick="selectMode(this.id)"><label for="basic-var">basic</label></div>
+               <div><input type="radio" id="medium-var" name="variations-mode" onClick="selectMode(this.id)"><label for="medium-var">medium</label></div>
+               <div><input type="radio" id="hard-var" name="variations-mode" onClick="selectMode(this.id)"><label for="hard-var">hard</div>
+               <div><input type="checkbox" id="select-all-var" name="variations-mode" onClick="selectAll('variations',this.id); saveAllCustoms(this.name)"><label for="select-all-var">select all</label></div>
+              </div> 
+            </div>
+            <div class="column">
+              <div class="align-column">
+               <div><input type="radio" id="custom-spins-off" name="spins-off-mode" onClick="reloadCustoms(this.id)" checked><label for="custom-spins-off">custom</label></div>
+               <div><input type="radio" id="basic-spins-off" name="spins-off-mode" onClick="selectMode(this.id)"><label for="basic-spins-off" onClick="selectMode(this.id)">basic</label></div>
+               <div><input type="radio" id="medium-spins-off" name="spins-off-mode" onClick="selectMode(this.id)"><label for="medium-spins-off">medium</label></div>
+               <div><input type="radio" id="hard-spins-off" name="spins-off-mode" onClick="selectMode(this.id)"><label for="hard-spins-off">hard</div>
+               <div><input type="checkbox" id="select-all-spins-off" name="spins-off-mode" onClick="selectAll('spins-off-trick',this.id); saveAllCustoms(this.name)"><label for="select-all-spins-off">select all</label></div>
+              </div> 
+            </div>
+          </div>
+          <div class="columns-tricks">
+            <div class="column">
+              <div class="align-column">
+               <div><input type="checkbox" id="acid" name="soul-tricks" onClick="saveAllCustoms(this.name)" checked><label for="acid">acid</label></div>
+               <div><input type="checkbox" id="awol" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="awol">awol</label></div>
+               <div><input type="checkbox" id="boardwalk" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="boardwalk">boardwalk</label></div>
+               <div><input type="checkbox" id="citricacid" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="citricacid">citric acid</label></div>
+               <div><input type="checkbox" id="deadfish" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="deadfish">deadfish</label></div>
+               <div><input type="checkbox" id="fish" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="fish">fish</label></div>
+               <div><input type="checkbox" id="kind" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="kind">kind</label></div>
+               <div><input type="checkbox" id="makio" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="makio">makio</div>
+               <div><input type="checkbox" id="monorail" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="monorail">monorail</div>
+               <div><input type="checkbox" id="mizou" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="mizou">mizou</label></div>
+               <div><input type="checkbox" id="misfit" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="misfit">misfit</label></div>
+               <div><input type="checkbox" id="mistrial" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="mistrial">mistrial</label></div>
+               <div><input type="checkbox" id="pornstar" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="pornstar">pornstar</label></div>
+               <div><input type="checkbox" id="sidewalk" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="sidewalk">sidewalk</label></div>
+               <div><input type="checkbox" id="stubsoul" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="stubsoul">stubsoul</label></div>
+               <div><input type="checkbox" id="sweatstance" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="sweatstance">sweatstance</label></div>
+               <div><input type="checkbox" id="soul" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="soul">soul</label></div>
+               <div><input type="checkbox" id="soyale" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="soyale">soyale</label></div>
+               <div><input type="checkbox" id="teakettle" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="teakettle">tea kettle</label></div>
+               <div><input type="checkbox" id="training-wheel" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="training-wheel">training wheel</label></div>
+               <div><input type="checkbox" id="torquesoul" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="torquesoul">torque soul</label></div>
+               <div><input type="checkbox" id="xgrind" name="soul-tricks" onClick="saveAllCustoms(this.name)"><label for="xgrind">x grind</label></div>
+              </div> 
+            </div>
+            <div class="column">
+              <div class="align-column">
+               <div><input type="checkbox" id="backslide" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="backslide">backslide</label></div>
+               <div><input type="checkbox" id="bynsoul" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="bynsoul">bynsoul</label></div>
+               <div><input type="checkbox" id="channel11" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="channel11">channel11</label></div>
+               <div><input type="checkbox" id="channel33" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="channel33">channel33</label></div>
+               <div><input type="checkbox" id="cowboy" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="cowboy">cowboy</label></div>
+               <div><input type="checkbox" id="crosswalk" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="crosswalk">crosswalk</label></div>
+               <div><input type="checkbox" id="darkslide" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="darkslide">darkslide</label></div>
+               <div><input type="checkbox" id="fastslide" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="fastslide">fastslide</label></div>
+               <div><input type="checkbox" id="fulltorque" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="fulltorque">fulltorque</div>
+               <div><input type="checkbox" id="pudslide" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="pudslide">pudslide</label></div>
+               <div><input type="checkbox" id="royale" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="royale">royale</label></div>
+               <div><input type="checkbox" id="savannah" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="savannah">savannah</label></div>
+               <div><input type="checkbox" id="sueslide" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="sueslide">sueslide</label></div>
+               <div><input type="checkbox" id="tabernacle" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="tabernacle">tabernacle</label></div>
+               <div><input type="checkbox" id="ufo" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="ufo">ufo</label></div>
+               <div><input type="checkbox" id="unity" name="groove-tricks" onClick="saveAllCustoms(this.name)"><label for="unity">unity</label></div>
+              </div> 
+            </div>
+            <div class="column">
+              <div class="align-column">
+               <div><input type="checkbox" id="alley-oop" name="spins-on-trick" onClick="saveAllCustoms(this.name)" checked><label for="alley-oop">alley-oop</label></div>
+               <div><input type="checkbox" id="inspin" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="inspin">inspin</label></div>
+               <div><input type="checkbox" id="outspin" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="outspin">outspin</div>
+               <div><input type="checkbox" id="truespin" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="truespin">truespin</label></div>
+               <div><input type="checkbox" id="zerospin" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="zerospin">zerospin</label></div>
+               <div><input type="checkbox" id="fullcab" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="fullcab">fullcab</label></div>
+               <div><input type="checkbox" id="twoseventy-on" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="twoseventy-on">270</label></div>
+               <div><input type="checkbox" id="fakie-twoseventy-on" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="fakie-twoseventy-on">fakie 270</label></div>
+               <div><input type="checkbox" id="threesixty-on" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="threesixty-on">360</label></div>
+               <div><input type="checkbox" id="fourfifty-on" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="fourfifty-on">450</label></div>
+               <div><input type="checkbox" id="fakie-fourfifty-on" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="fakie-fourfifty-on">fakie 450</label></div>
+               <div><input type="checkbox" id="fivefourty-on" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="fivefourty-on">540</label></div>
+               <div><input type="checkbox" id="illusion" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="illusion">illusion</label></div>
+               <div><input type="checkbox" id="medspin" name="spins-on-trick" onClick="saveAllCustoms(this.name)"><label for="medspin">medspin</label></div>
+              </div> 
+            </div>
+            <div class="column">
+              <div class="align-column">
+               <div><input type="checkbox" id="backside" name="variations" onClick="saveAllCustoms(this.name)"><label for="backside">backside</label></div>
+               <div><input type="checkbox" id="christ" name="variations" onClick="saveAllCustoms(this.name)"><label for="christ">christ</label></div>
+               <div><input type="checkbox" id="farside" name="variations" onClick="saveAllCustoms(this.name)"><label for="farside">farside</label></div>
+               <div><input type="checkbox" id="freestyle" name="variations" onClick="saveAllCustoms(this.name)"><label for="freestyle">freestyle</label></div>
+               <!--<div><input type="checkbox" id="darkside" name="variations" onClick="saveAllCustoms(this.name)"><label for="darkside">darkside</label></div>-->
+               <div><input type="checkbox" id="disaster" name="variations" onClick="saveAllCustoms(this.name)"><label for="disaster">disaster</label></div>
+               <div><input type="checkbox" id="topside" name="variations" onClick="saveAllCustoms(this.name)" checked><label for="topside">topside</label></div>
+               <div><input type="checkbox" id="negative" name="variations" onClick="saveAllCustoms(this.name)"><label for="negative">negative</div>
+               <div><input type="checkbox" id="parallel" name="variations" onClick="saveAllCustoms(this.name)"><label for="parallel">parallel</div>
+               <div><input type="checkbox" id="rocket" name="variations" onClick="saveAllCustoms(this.name)"><label for="rocket">rocket</div>
+               <div><input type="checkbox" id="rough" name="variations" onClick="saveAllCustoms(this.name)"><label for="rough">rough</div>
+               <div><input type="checkbox" id="switch" name="variations" onClick="saveAllCustoms(this.name)"><label for="switch">switch</label></div>
+               <div><input type="checkbox" id="tough" name="variations" onClick="saveAllCustoms(this.name)"><label for="tough">tough</div>
+              </div> 
+            </div>
+            <div class="column">
+              <div class="align-column">
+               <div><input type="checkbox" id="to-fakie" name="spins-off-trick" onClick="saveAllCustoms(this.name)" checked><label for="to-fakie">to fakie</label></div>
+               <div><input type="checkbox" id="oneeighty-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="oneeighty-off">180</label></div>
+               <div><input type="checkbox" id="twoseventy-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="twoseventy-off">270</label></div>
+               <div><input type="checkbox" id="threesixty-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="threesixty-off">360</label></div>
+               <div><input type="checkbox" id="fourfifty-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="fourfifty-off">450</label></div>
+               <div><input type="checkbox" id="fivefourty-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="fivefourty-off">540</label></div>
+               <div><input type="checkbox" id="sixthirty-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="sixthirty-off">630</div>
+               <div><input type="checkbox" id="seventwenty-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="seventwenty-off">720</label></div>
+               <div><input type="checkbox" id="eightten-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="eightten-off">810</label></div>
+               <div><input type="checkbox" id="ninehudred-off" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="ninehudred-off">900</label></div>
+               <div><input type="checkbox" id="rewind" name="spins-off-trick" onClick="saveAllCustoms(this.name)"><label for="rewind">rewind</label></div>
+              </div> 
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <div>
+    <!--<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VJ93Y4JXFD8VY&source=url">Donate</a>-->
+    </div>
+
+<!--<fieldset>
+  <legend>Choose your interests</legend>
+  <div>
+    <input type="checkbox" id="coding" name="interest" value="coding" checked>
+    <label for="coding">Coding</label>
+  </div>
+  <div>
+    <input type="checkbox" id="music" name="interest" value="music">
+    <label for="music">Music</label>
+  </div>
+</fieldset> -->
+  </body>
+</html>

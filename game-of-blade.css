@@ -1,0 +1,340 @@
+* {
+/*  border: 1px dotted black;*/
+  font-family: 'Lato';
+}
+
+body {
+	background-color: black;
+}
+
+
+
+.gob-title {
+	font-size: 30px;
+    width: 510px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 50px 2px;
+	text-transform: uppercase;
+}
+
+.gob-wrapper {
+	margin: 0 auto;
+	max-width: 900px;
+	border: 1px solid black;
+	border-radius: 50px;
+	background-color: white;
+}
+
+.columns-wrapper {
+	text-align: center;
+}
+
+.columns-titles {
+}
+
+.column-title {
+	text-transform: uppercase;
+	padding: 10px 0;
+}
+
+.columns-mode {
+/*	height: 100px;*/
+}
+
+.columns-titles, .columns-mode, .columns-result {
+	padding: 10px 0;
+}
+
+.columns-tricks {
+/*	height: 350px;*/
+padding: 10px 0 45px;
+}
+
+.column {
+/*	height: 500px;*/
+}
+
+.align-column {
+	max-width: 120px;
+	margin: 0 auto;
+	padding: 10px 15px;
+}
+
+.align-column div {
+	text-align:left;
+	padding: 3px 0;
+	font-size: 12px;
+}
+
+.align-column label {
+	text-transform: uppercase;
+	margin-left: 2px;
+}
+
+.column, .column-title {
+  margin: 0 auto;
+  text-align: center;
+  width:19%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.column-title, .align-column {
+	background-color: #fbfbfb;
+}
+
+.button-field {
+	padding: 30px;
+}
+
+.gob-button, .clear-button {
+	display: inline-block !important;
+	font-size: 12px;
+	display: block;
+	height: 40px;
+	width: 117px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	line-height: 3.1;
+	margin: 0 auto;
+	text-decoration: none;
+	border: 0;
+	cursor: pointer;
+}
+
+.clear-button {
+	color: black;
+	background-color: white;
+	border: 1px solid black;
+}
+
+.gob-button {
+	color: white;
+	background-color: #00a651;
+}
+
+.result-block {
+	border: 2px solid #f7941d;
+	border-radius: 30px;
+	padding: 35px;
+	margin: 35px;
+}
+
+.trick-result {
+
+}
+
+.more-button {
+	padding-top: 15px;
+}
+
+.more-button i {
+	cursor: pointer;
+	border: 0px solid black;
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+	padding: 2px 4.5px 2px 5px;
+}
+
+.visible {
+/	display: block;
+	opacity: 1;
+	transition: all 2s ease-out 0.5s;
+}
+
+.invisible {
+	display: none;
+	opacity: 0;
+	transition: all 2s ease-out 0.5s;
+}
+
+/*standard tricks*/
+#acid ~ label, #fish ~ label, #makio ~ label, #mizou ~ label,
+#mistrial ~ label, #pornstar ~ label, #soul ~ label, #torquesoul ~ label, #xgrind ~ label,
+#backslide ~ label, #fastslide ~ label, #fulltorque ~ label, #pudslide ~ label, #royale ~ label, 
+#savannah ~ label, #sueslide ~ label, #ufo ~ label, #unity ~ label,
+#backside ~ label, #topside ~ label, #negative ~ label, #switch ~ label {
+	font-weight:bold;
+}
+
+/*spans classes*/
+.disaster-variation, .switch-variation, .farside-variation, .illusion-variation, .medspin-variation, .spin-variation, .ao-variation, 
+.negative-variation, .topside-variation, .backside-variation, .rough-variation, .grab-variation, .soul-name, .groove-name, .spin-off-variation {
+	border: 1px solid white;
+	border-radius: 16px;
+	margin: 8px 2px;
+	padding: 5px 5px;
+	font-size: 14px;
+	color: white;
+}
+
+.trick-name span {
+	border-radius: 0;
+}
+
+.trick-name span:first-child:last-child {
+	border-radius: 16px;
+}
+
+.trick-name span:first-child {
+	border-radius: 16px 0 0 16px;
+}
+
+.trick-name span:last-child {
+	border-radius: 0 16px 16px 0;
+}
+
+.trick-name {
+	padding: 13px 6px;
+	text-transform: uppercase;
+
+}
+
+/*.trick-name:nth-of-type(1n+6) {
+	display:none;
+}*/
+
+/*.disaster-variation {
+	background-color:#40a348;
+}
+
+.switch-variation {
+	background-color:#c94140;
+}
+
+.farside-variation {
+	background-color:#9ed2a0;
+}
+
+.illusion-variation {
+
+}
+
+.medspin-variation {
+
+}
+.illusion-variation, .medspin-variation {
+	background-color:#ea9b3e;
+}
+.spin-variation {
+	background-color:#4090a3;
+}
+
+.ao-variation {
+	background-color:#67439b;
+}
+
+.negative-variation {
+	background-color:#000000;
+}
+
+.topside-variation {
+	background-color:#c056a0;
+}
+
+.backside-variation {
+	background-color:#4ebfa2;
+}
+
+.rough-variation {
+	background-color:#a3bc40;
+}
+
+.grab-variation {
+	background-color:#ffb3a1;
+}
+
+.soul-name {
+
+}
+
+.groove-name {
+
+}
+.soul-name, .groove-name {
+	background-color:#4055a5;
+}
+
+.spin-off-variation {
+	background-color:#c056a0;
+}*/
+
+.disaster-variation {
+	border: 1px solid #40a348;
+	color: #40a348;
+}
+
+.switch-variation {
+	border: 1px solid #c94140;
+	color: #c94140;
+}
+
+.farside-variation {
+	border: 1px solid #9ed2a0;
+	color:#9ed2a0;
+}
+
+.illusion-variation {
+
+}
+
+.medspin-variation {
+
+}
+.illusion-variation, .medspin-variation {
+	border: 1px solid #ea9b3e;
+	color:#ea9b3e;
+}
+.spin-variation {
+	border: 1px solid #4090a3;
+	color:#4090a3;
+}
+
+.ao-variation {
+	border: 1px solid #67439b;
+	color:#67439b;
+}
+
+.negative-variation {
+	border: 1px solid #000000;
+	color:#000000;
+}
+
+.topside-variation {
+	border: 1px solid #c056a0;
+	color:#c056a0;
+}
+
+.backside-variation {
+	border: 1px solid #4ebfa2;
+	color:#4ebfa2;
+}
+
+.rough-variation {
+	border: 1px solid #a3bc40;
+	color:#a3bc40;
+}
+
+.grab-variation {
+	border: 1px solid #ffb3a1;
+	color:#ffb3a1;
+}
+
+.soul-name {
+
+}
+
+.groove-name {
+
+}
+.soul-name, .groove-name {
+	border: 1px solid #4055a5;
+	color:#4055a5;
+}
+
+.spin-off-variation {
+	border: 1px solid #c056a0;
+	color:#c056a0;
+}
